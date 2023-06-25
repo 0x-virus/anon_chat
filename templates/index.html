@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Anonymous Chat</title>
+    </head>
+    <body>
+        <h1>Anonymous chat by <a id="link" target="_blank" href="https://github.com/0x-virus">0x-virus</a></h1>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <div id="messages">
+            {% for i in data %}
+                <h4>{{ " : ".join(i) }}</h4>
+            {% endfor %}
+        </div>
+        <input type="text" id="tx" size=50>
+        <input type="button" id="bt" value="Send" onclick="send_message()">
+    </body>
+</html>
